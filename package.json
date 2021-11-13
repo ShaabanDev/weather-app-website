@@ -1,0 +1,23 @@
+{
+  "name": "weather-web-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mosh3ban/weather-web-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mosh3ban/weather-web-server/issues"
+  },
+  "homepage": "https://github.com/mosh3ban/weather-web-server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
