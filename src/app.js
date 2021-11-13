@@ -1,22 +1,19 @@
+// loading the path library
+const path = require('path');
 // loading the express library
 const express = require('express');
 
 // create our app
 const app = express();
 
-// root route
-app.get('',(req,res)=>{
-    res.send('hello express');
-})
-// help route
-app.get('/help',(req,res)=>{
-    res.send('this is help page')
-})
+// getting the path of the public folder contains our static pages
+const dirPath =path.join(__dirname,'../public');
 
-// about route
-app.get('/about',(req,res)=>{
-    res.send('this about page')
-})
+
+app.use(express.static(dirPath))
+console.log(dirPath);
+
+
 
 // weather route
 app.get('/weather',(req,res)=>{
