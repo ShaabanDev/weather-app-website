@@ -4,6 +4,9 @@ const path = require("path");
 const express = require("express");
 
 const hbs = require("hbs");
+const geocode = require("./utils/geocode");
+// import forecast function from forecast module
+const forecast = require("./utils/forecast");
 // create our app
 const app = express();
 
@@ -49,16 +52,55 @@ app.get("/about", (req, res) => {
   });
 });
 
+app.get("/products", (req, res) => {
+  if (!req.query.search) {
+    return res.send({
+      error: "you have to provide a search",
+    });
+  }
+  res.send({
+    products: [],
+  });
+});
 // weather route
+
 app.get("/weather", (req, res) => {
-  res.send("this is weather page");
+  if (!req.query.address) {
+    return res.send({
+      error: "you have to provide an Address",
+    });
+  }
+
+  geocode(req.query.address, (data, error) => {
+    if (data) {
+      forecast(data.longitude, data.latitude, (forecastData, error) => {
+        if (forecastData) {
+          res.send({
+            forecast: forecastData,
+            location: data.location,
+            address: req.query.address,
+          });
+        }
+        if (error) {
+          res.send({
+            error: error,
+          });
+        }
+      });
+    }
+    if (error) {
+      res.send({
+        error: error,
+      });
+    }
+  });
 });
 
 app.get("/help/*", (req, res) => {
   res.render("404-page", {
     title: "404",
     name: "Mohamed Shaaban",
-    errorMessage: "page not found",
+    errorMessage: "Article is not found",
   });
 });
 app.get("/*", (req, res) => {

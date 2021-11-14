@@ -1,10 +1,39 @@
-h1{
-    color: brown;
+body{
+    color: #333333;
+    font-family: Arial;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-img{
-    width: 250px;
+.main-content{
+    flex-grow: 1;
 }
-li{
-    display: inline;
+header{
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+footer{
+    color: #888888;
+    border-top: solid 1px #eeeeee;
+    margin-top: 16px;
+}
+
+h1{
+    font-size: 64px;
+    margin-bottom: 16px;
+}
+
+header a{
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.myimage{
+    width: 250px;
 }
