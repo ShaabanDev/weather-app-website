@@ -8,11 +8,15 @@ const forecast = (longitude, latitude, callback) => {
     response.on("data", (chunk) => {
       data = data + chunk.toString();
     });
-
+    
     response.on("end", () => {
       const body = JSON.parse(data);
+      if(body.error)
+      {
+        return callback(undefined, body.error);
+      }
       const current = body.current;
-      const forecast = `The Current Temp is ${current.temperature} and it feal like ${current.feelslike} and the Weather Desctiption is ${current.weather_descriptions[0]}`;
+      const forecast =current!=undefined? `The Current Temp is ${current.temperature} and it feal like ${current.feelslike} and the Weather Desctiption is ${current.weather_descriptions[0]}`:'some error happened';
       callback(forecast, undefined);
     });
 
