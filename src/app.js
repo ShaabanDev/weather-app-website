@@ -11,7 +11,7 @@ const forecast = require("./utils/forecast");
 const app = express();
 
 
-const port = process.env.PORT || 400;
+const port = process.env.PORT || 4000;
 
 // define the public 'folder contains our static pages' path
 const dirPath = path.join(__dirname, "../public");
