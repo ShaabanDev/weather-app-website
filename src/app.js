@@ -10,6 +10,9 @@ const forecast = require("./utils/forecast");
 // create our app
 const app = express();
 
+
+const port = process.env.PORT || 400;
+
 // define the public 'folder contains our static pages' path
 const dirPath = path.join(__dirname, "../public");
 
@@ -112,7 +115,6 @@ app.get("/*", (req, res) => {
   });
 });
 
-const port = 4000;
 app.listen(port, () => {
-  console.log("server is on at port " + port);
+  console.log("server is up at port " + port);
 });
