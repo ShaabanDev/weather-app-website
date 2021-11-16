@@ -1,4 +1,3 @@
-const request = require("postman-request");
 const http = require("http");
 
 const forecast = (longitude, latitude, callback) => {

@@ -1,4 +1,3 @@
-const { error } = require("console");
 const https = require("https");
 
 const geocode = (address, callback) => {
@@ -27,7 +26,7 @@ const geocode = (address, callback) => {
       );
     });
   });
-
+  
   request.end();
 };
 
